@@ -66,7 +66,7 @@ security-corpus/
 ## Setup
 
 ```powershell
-cd C:\Users\tanma\OneDrive\Desktop\Tanmay\security-corpus
+cd security-corpus
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
@@ -83,7 +83,6 @@ The default run is intentionally practical for a first build:
 - local internal playbook ingestion from `inputs/internal_playbooks/`
 
 ```powershell
-cd C:\Users\tanma\OneDrive\Desktop\Tanmay\security-corpus
 python -m data_pipeline.build_corpus
 ```
 
