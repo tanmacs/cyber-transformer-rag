@@ -1,0 +1,400 @@
+{
+  "title": "SwiftSafe Tokenizer - IOC Atomicity Validation Report",
+  "timestamp": "2026-03-30T19:53:34.540468",
+  "tokenizer_config": {
+    "model": "Byte-Level BPE",
+    "vocab_size": 555,
+    "special_tokens": [
+      "<|system|>",
+      "<|context|>",
+      "<|query|>",
+      "<|endoftext|>"
+    ]
+  },
+  "test_results": {
+    "CVE_ID": {
+      "passed": 3,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "CVE-2024-12345",
+          "example": "Critical vulnerability CVE-2024-12345 patched.",
+          "preserved": true,
+          "tokens": [
+            "C",
+            "r",
+            "it",
+            "i",
+            "cal",
+            " ",
+            "v",
+            "ul",
+            "ner",
+            "abilit",
+            "y ",
+            "CVE-2024-12345",
+            " p",
+            "at",
+            "ch",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "CVE-2021-1234567",
+          "example": "Long CVE CVE-2021-1234567 discovered.",
+          "preserved": true,
+          "tokens": [
+            "on",
+            "g",
+            " ",
+            "CV",
+            "E",
+            " ",
+            "CVE-2021-1234567",
+            " d",
+            "is",
+            "cover",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "CVE-2023-44487",
+          "example": "Multi CVE-2023-44487 and CVE-2022-30190 found.",
+          "preserved": true,
+          "tokens": [
+            "M",
+            "ul",
+            "t",
+            "i",
+            " ",
+            "CVE-2023-44487",
+            " ",
+            "an",
+            "d ",
+            "CVE-2022-30190",
+            " f",
+            "o",
+            "u",
+            "n",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "IPv4": {
+      "passed": 3,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "192.168.1.105",
+          "example": "Server 192.168.1.105 compromised.",
+          "preserved": true,
+          "tokens": [
+            "S",
+            "er",
+            "ver",
+            " ",
+            "192.168.1.105",
+            " compr",
+            "omis",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "0.0.0.0",
+          "example": "Traffic 0.0.0.0 and 255.255.255.255 blocked.",
+          "preserved": true,
+          "tokens": [
+            "r",
+            "af",
+            "f",
+            "i",
+            "c",
+            " ",
+            "0.0.0.0",
+            " ",
+            "an",
+            "d ",
+            "255.255.255.255",
+            " ",
+            "b",
+            "lo",
+            "c",
+            "k",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "10.0.0.55",
+          "example": "Host 10.0.0.55 infected.",
+          "preserved": true,
+          "tokens": [
+            "H",
+            "ost",
+            " ",
+            "10.0.0.55",
+            " ",
+            "in",
+            "fec",
+            "t",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "IPv6": {
+      "passed": 1,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+          "example": "IPv6 2001:0db8:85a3:0000:0000:8a2e:0370:7334 flagged.",
+          "preserved": true,
+          "tokens": [
+            "IP",
+            "v",
+            "6",
+            " ",
+            "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+            " flag",
+            "g",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "SHA256": {
+      "passed": 1,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+          "example": "Hash 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 matched.",
+          "preserved": true,
+          "tokens": [
+            "H",
+            "a",
+            "sh ",
+            "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+            " ",
+            "mat",
+            "ch",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "MD5": {
+      "passed": 1,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "d41d8cd98f00b204e9800998ecf8427e",
+          "example": "MD5 d41d8cd98f00b204e9800998ecf8427e found.",
+          "preserved": true,
+          "tokens": [
+            "MD5 ",
+            "d41d8cd98f00b204e9800998ecf8427e",
+            " f",
+            "o",
+            "u",
+            "n",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "Windows Path": {
+      "passed": 2,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "C:\\Users\\Admin\\AppData\\Local\\malware.exe",
+          "example": "Payload C:\\Users\\Admin\\AppData\\Local\\malware.exe dropped.",
+          "preserved": true,
+          "tokens": [
+            "P",
+            "ay",
+            "load ",
+            "C:\\Users\\Admin\\AppData\\Local\\malware.exe",
+            " dropp",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "C:\\Windows\\System32\\cmd.exe",
+          "example": "Backdoor C:\\Windows\\System32\\cmd.exe executed.",
+          "preserved": true,
+          "tokens": [
+            "B",
+            "ackdoor",
+            " ",
+            "C:\\Windows\\System32\\cmd.exe",
+            " ",
+            "ex",
+            "ec",
+            "u",
+            "t",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "Unix Path": {
+      "passed": 2,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "/usr/local/bin/sshd_monitor",
+          "example": "Rootkit /usr/local/bin/sshd_monitor installed.",
+          "preserved": true,
+          "tokens": [
+            "R",
+            "o",
+            "o",
+            "t",
+            "k",
+            "it",
+            " ",
+            "/usr/local/bin/sshd_monitor",
+            " ",
+            "in",
+            "st",
+            "al",
+            "l",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "/etc/passwd",
+          "example": "File /etc/passwd compromised.",
+          "preserved": true,
+          "tokens": [
+            "Fil",
+            "e ",
+            "/etc/passwd",
+            " compr",
+            "omis",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "Hex String": {
+      "passed": 2,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "0xdeadbeef",
+          "example": "Shellcode offset 0xdeadbeef identified.",
+          "preserved": true,
+          "tokens": [
+            "S",
+            "h",
+            "e",
+            "l",
+            "l",
+            "co",
+            "d",
+            "e ",
+            "o",
+            "f",
+            "f",
+            "s",
+            "et",
+            " ",
+            "0xdeadbeef",
+            " ",
+            "i",
+            "de",
+            "n",
+            "t",
+            "i",
+            "f",
+            "i",
+            "e",
+            "d",
+            "."
+          ]
+        },
+        {
+          "ioc": "0x41424344",
+          "example": "Encoding 0x41424344 detected.",
+          "preserved": true,
+          "tokens": [
+            "E",
+            "n",
+            "co",
+            "d",
+            "in",
+            "g",
+            " ",
+            "0x41424344",
+            " ",
+            "de",
+            "t",
+            "ec",
+            "t",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    },
+    "Domain": {
+      "passed": 1,
+      "failed": 0,
+      "tests": [
+        {
+          "ioc": "evil-c2.onion",
+          "example": "Beacon evil-c2.onion contacted.",
+          "preserved": true,
+          "tokens": [
+            "B",
+            "e",
+            "acon ",
+            "evil-c2.onion",
+            " c",
+            "on",
+            "t",
+            "ac",
+            "t",
+            "e",
+            "d",
+            "."
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0
+  }
+}
