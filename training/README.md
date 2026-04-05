@@ -21,7 +21,7 @@ End-to-end language model training for the CyberSecTransformer.
 # From repo root
 pip install -r training/requirements.txt
 # The neural-architecture/ modules require PyTorch (included above)
-# The tokenizer modules require tokenizers==0.13.3 (included above)
+# The tokenizer modules require tokenizers>=0.13.3 (included above)
 ```
 
 ### 2. Run training (all defaults)

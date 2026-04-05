@@ -178,8 +178,8 @@ def train(args: argparse.Namespace) -> None:
     # ── 3. Optimizer (AdamW with weight-decay separation) ─────────────────────
     # Apply weight decay only to weight matrices (dim >= 2); skip biases and
     # LayerNorm parameters to match the original GPT training recipe.
-    decay_params    = [p for n, p in model.named_parameters() if p.dim() >= 2]
-    no_decay_params = [p for n, p in model.named_parameters() if p.dim() <  2]
+    decay_params    = [p for _, p in model.named_parameters() if p.dim() >= 2]
+    no_decay_params = [p for _, p in model.named_parameters() if p.dim() <  2]
     optimizer = torch.optim.AdamW(
         [
             {"params": decay_params,    "weight_decay": args.weight_decay},
@@ -265,28 +265,28 @@ def train(args: argparse.Namespace) -> None:
             # Periodic logging
             if global_step % args.log_every == 0:
                 avg_loss = epoch_loss / epoch_batches
-                ppl = math.exp(min(avg_loss, 20))   # cap to avoid overflow
+                perplexity = math.exp(min(avg_loss, 20))   # cap to avoid overflow
                 entry = {
                     "epoch":       epoch,
                     "step":        global_step,
                     "loss":        round(loss.item(), 4),
                     "avg_loss":    round(avg_loss, 4),
-                    "perplexity":  round(ppl, 2),
+                    "perplexity":  round(perplexity, 2),
                     "lr":          round(lr, 8),
                 }
                 log.append(entry)
                 print(
                     f"  epoch {epoch:3d} | step {global_step:6d} | "
                     f"loss {loss.item():.4f} | avg {avg_loss:.4f} | "
-                    f"ppl {ppl:.2f} | lr {lr:.2e}"
+                    f"ppl {perplexity:.2f} | lr {lr:.2e}"
                 )
 
         # End-of-epoch summary
         avg_epoch_loss = epoch_loss / max(1, epoch_batches)
-        ppl_epoch = math.exp(min(avg_epoch_loss, 20))
+        perplexity = math.exp(min(avg_epoch_loss, 20))
         print(
             f"\n  ── Epoch {epoch:3d} complete: "
-            f"avg_loss={avg_epoch_loss:.4f}  ppl={ppl_epoch:.2f} ──\n"
+            f"avg_loss={avg_epoch_loss:.4f}  ppl={perplexity:.2f} ──\n"
         )
 
         # Save checkpoint
